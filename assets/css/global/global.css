@@ -7,3 +7,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: Arial, sans-serif; /* Fonte teste */
+    background-color: var(--light-gray-color); /* Teste de background */
+    color: var(--black-color); 
+    line-height: 1.6;
+  }
+  

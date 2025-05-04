@@ -1,3 +1,17 @@
+/* NavBar Tela inicio */
+.header{
+    background-color: var(--light-gray-color);
+    color: var(--white-color);
+    padding: 16px 0;
+    border-bottom: 2px solid var(--gray-color); /* linha separadora */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* sombra leve */
+
+}
+
+nav_link{
+    color: var(--white-color);
+}
+
 h1{
     color: brown;
 }

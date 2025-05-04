@@ -1,18 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/pages/index/index.css">
-    <title>Food-Business</title>
-</head>
-<body>
-    <!-- nav -->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Hero -->
+    <!-- CSS da Página -->
+    <link rel="stylesheet" href="./assets/css/pages/index/index.css" />
+
+    <!-- CSS Base -->
+    <link rel="stylesheet" href="variable.css" />
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="global.css" />
+
+    <!-- CSS de Componentes -->
+    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="hero.css" />
+
+    <title>Food Business</title>
+  </head>
+
+  <body>
+    <!-- nav -->
+    <header class="header">
+      <div class="container header__content">
+        <h1 class="logo">Food Business</h1>
+        <nav class="nav">
+          <a href="#sobre" class="nav__link">Sobre</a>
+          <a href="#cardapio" class="nav__link">Cardápio</a>
+          <a href="#contato" class="nav__link">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+      <div class="container hero__content">
+        <div class="hero__text">
+          <h2 class="hero__title">
+            Não é só comida, é uma <span class="red">experiência</span>
+          </h2>
+          <a href="#cardapio" class="hero__button">fazer pedido</a>
+        </div>
+        <div class="hero__image">
+          <img src="/assets/imgs/hero/main_hero.png" alt="main hero" />
+        </div>
+      </div>
+    </section>
 
     <!-- menu -->
 
     <!-- footer -->
-</body>
+  </body>
 </html>
