@@ -1,17 +1,58 @@
-/* NavBar Tela inicio */
-.header{
-    background-color: var(--light-gray-color);
-    color: var(--white-color);
-    padding: 16px 0;
-    border-bottom: 2px solid var(--gray-color); /* linha separadora */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* sombra leve */
-
+/* NavBar Tela início */
+.header {
+  background-color: var(--white-color);
+  padding: 16px 0;
+  border-bottom: 2px solid var(--gray-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-nav_link{
-    color: var(--white-color);
+.header__content {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-h1{
-    color: brown;
+/* Logo com espaçamento da borda esquerda */
+.logo {
+  color: brown;
+  font-size: 1.5rem;
+  margin-left: 24px;
+}
+
+/* Centraliza a nav e aumenta o espaçamento entre os links */
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px; /* espaçamento entre os links */
+}
+
+.nav__link {
+  color: var(--black-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+  color: var(--red-color);
+}
+
+/* Botão do usuário no canto superior direito */
+.user-button {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.user-button img {
+  width: 32px;
+  height: 32px;
 }

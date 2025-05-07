@@ -1,60 +1,86 @@
 /* Apenas alterando a cor de 'experiência' na tela inicio */
 .red {
-    color: var(--red-color);
+  color: var(--red-color);
 }
 
 .hero {
-    background-color: var(--light-gray-color); /* sem imagem de fundo agora */
-    color: var(--black-color);
-    padding: 60px 20px;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  padding: 87px 5px; /* Ajuste de padding */
+  border-bottom: 0; /* Remove a borda ou ajusta a cor da borda se necessário */
 }
 
 .hero__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 40px;
-    flex-wrap: wrap; /* responsivo */
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+  flex-wrap: wrap; /* Responsivo */
+}
 
-  .hero__text {
-    flex: 1;
-  }
-  
-  .hero__title {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-  
-  .hero__image {
-    flex: 1;
-    text-align: right;
-  }
-  
-  .hero__image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
+.hero__text {
+  flex: 1;
+  text-align: left;
+}
 
-  /* Botão de fazer pedido tela Inicio */
-  .hero__button {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 12px 24px;
-    background-color: var(--black-color);
-    color: var(--white-color);
-    border: none;
-    border-radius: 32px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .hero__button:hover {
-    background-color: var(--gray-color);
-    cursor: pointer;
-  }
+.hero__title {
+  font-size: 2.5rem;
+  margin-bottom: 16px; /* margem */
+}
+
+.hero__image {
+  flex: 1;
+  text-align: right;
+}
+
+.hero__image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Botão de fazer pedido tela Inicio */
+.hero__button {
+  display: inline-block;
+  margin-top: 24px; /* Ajuste conforme necessário */
+  margin-bottom: 32px; /* Adiciona um espaço abaixo do botão */
+  padding: 12px 24px;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero__button:hover {
+  background-color: var(--gray-color);
+  cursor: pointer;
+}
+
+.carousel {
+  margin-top: 32px; /* controle do espaçamento entre os elementos */
+  margin-bottom: 0; /* Verificar se há margem inferior */
+  padding: 0; /* o padding  pode estar causando espaço extra */
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+}
+
+.carousel__track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.5s ease;
+}
+
+.carousel__image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}

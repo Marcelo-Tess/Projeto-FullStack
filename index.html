@@ -24,25 +24,57 @@
     <header class="header">
       <div class="container header__content">
         <h1 class="logo">Food Business</h1>
+
         <nav class="nav">
-          <a href="#sobre" class="nav__link">Sobre</a>
+          <a href="#home" class="nav__link">Home</a>
           <a href="#cardapio" class="nav__link">Cardápio</a>
-          <a href="#contato" class="nav__link">Contato</a>
+          <a href="#estabelecimento" class="nav__link">Estabelecimento</a>
+          <a href="#feedbacks" class="nav__link">Feedbacks</a>
         </nav>
+
+        <button class="user-button">
+          <img src="/assets/imgs/nav/user_icon.png" alt="Ícone do usuário" />
+        </button>
       </div>
     </header>
 
     <!-- hero -->
     <section class="hero">
       <div class="container hero__content">
+        <!-- Texto do herói -->
         <div class="hero__text">
           <h2 class="hero__title">
-            Não é só comida, é uma <span class="red">experiência</span>
+            Não é só comida, <br />
+            é uma <span class="red">experiência</span>
           </h2>
-          <a href="#cardapio" class="hero__button">fazer pedido</a>
+
+          <a href="#cardapio" class="hero__button">Fazer Pedido</a>
+
+          <!-- Carrossel -->
+          <div class="carousel">
+            <div class="carousel__track">
+              <img
+                src="/assets/imgs/hero/pizza_hero.png"
+                alt="Imagem 1"
+                class="carousel__image"
+              />
+              <img
+                src="/assets/imgs/hero/pizza_2_hero.png"
+                alt="Imagem 2"
+                class="carousel__image"
+              />
+              <img
+                src="/assets/imgs/hero/burguer_hero.png"
+                alt="Imagem 3"
+                class="carousel__image"
+              />
+            </div>
+          </div>
         </div>
+
+        <!-- Imagem ao lado do texto -->
         <div class="hero__image">
-          <img src="/assets/imgs/hero/main_hero.png" alt="main hero" />
+          <img src="/assets/imgs/hero/main_hero.png" alt="Main hero" />
         </div>
       </div>
     </section>
