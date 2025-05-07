@@ -2,8 +2,15 @@
 @import "./fonts.css";
 @import "./variables.css";
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Fonte teste */
+  background-color: var(--white-color); /* Teste de background */
+  color: var(--black-color);
+  line-height: 1.6;
 }
