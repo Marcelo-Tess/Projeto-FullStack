@@ -9,8 +9,8 @@
 }
 
 body {
-  font-family: Arial, sans-serif; /* Fonte teste */
-  background-color: var(--white-color); /* Teste de background */
+  font-family: Arial, sans-serif; 
+  background-color: var(--white-color); 
   color: var(--black-color);
   line-height: 1.6;
 }
