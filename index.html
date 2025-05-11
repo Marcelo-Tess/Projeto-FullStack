@@ -1,76 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./assets/css/pages/index/index.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Food Business</title>
-  </head>
+  <link rel="stylesheet" href="./assets/css/pages/index/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <body>
-    <!-- nav -->
-    <header class="header">
-      <div class="container header__content">
-        <h1 class="logo">Food Business</h1>
+  <title>Food Business</title>
+</head>
 
-        <nav class="nav">
-          <a href="#home" class="nav__link">Home</a>
-          <a href="#cardapio" class="nav__link">Cardápio</a>
-          <a href="#estabelecimento" class="nav__link">Estabelecimento</a>
-          <a href="#feedbacks" class="nav__link">Feedbacks</a>
-        </nav>
+<body>
+  <!-- nav -->
+  <header class="header">
+    <div class="container header__content">
+      <h1 class="logo">Food Business</h1>
 
-        <button class="user-button">
-          <img src="./assets/imgs/nav/user_icon.png" alt="Ícone do usuário" />
-        </button>
-      </div>
-    </header>
+      <nav class="nav">
+        <a href="#home" class="nav__link">Home</a>
+        <a href="#cardapio" class="nav__link">Cardápio</a>
+        <a href="#estabelecimento" class="nav__link">Estabelecimento</a>
+        <a href="#feedbacks" class="nav__link">Feedbacks</a>
+      </nav>
 
-    <!-- hero -->
-    <section class="hero">
-      <div class="container hero__content">
-        <!-- Texto do herói -->
-        <div class="hero__text">
-          <h2 class="hero__title">
-            Não é só comida, <br />
-            é uma <span class="red">experiência</span>
-          </h2>
+      <button class="user-button">
+        <img src="./assets/imgs/nav/user_icon.png" alt="Ícone do usuário" />
+      </button>
+    </div>
+  </header>
 
-          <a href="#cardapio" class="hero__button">Fazer Pedido</a>
+  <!-- hero -->
+  <main class="hero">
+    <div class="container hero__content">
+      <!-- Texto do herói -->
+      <div class="hero__text">
+        <h2 class="hero__title">
+          Não é só comida, <br />
+          é uma <span class="red">experiência</span>
+        </h2>
 
-          <!-- Carrossel -->
-          <div class="carousel">
-            <div class="carousel__track">
-              <img
-                src="./assets/imgs/hero/pizza_hero.png"
-                alt="Imagem 1"
-                class="carousel__image"
-              />
-              <img
-                src="./assets/imgs/hero/pizza_2_hero.png"
-                alt="Imagem 2"
-                class="carousel__image"
-              />
-              <img
-                src="./assets/imgs/hero/burguer_hero.png"
-                alt="Imagem 3"
-                class="carousel__image"
-              />
-            </div>
+        <a href="#cardapio" class="hero__button">Fazer Pedido</a>
+
+        <!-- Carrossel -->
+        <div class="carousel">
+          <div class="carousel__track">
+            <img src="./assets/imgs/hero/pizza_hero.png" alt="Imagem 1" class="carousel__image" />
+            <img src="./assets/imgs/hero/pizza_2_hero.png" alt="Imagem 2" class="carousel__image" />
+            <img src="./assets/imgs/hero/burguer_hero.png" alt="Imagem 3" class="carousel__image" />
           </div>
         </div>
+  </main>
 
-        <!-- Imagem ao lado do texto -->
-        <div class="hero__image">
-          <img src="./assets/imgs/hero/main_hero.png" alt="Main hero" />
+  <!-- Imagem ao lado do texto -->
+  <div class="hero__image">
+    <img src="./assets/imgs/hero/main_hero.png" alt="Main hero" />
+  </div>
+  </div>
+  </section>
+
+  <!-- menu -->
+
+  <section class="menu">
+    <h2>Cardápio</h2>
+    <div class="filters">
+      <button><i class="fa-solid fa-shrimp"></i><span>Frutos do Mar</span></button>
+      <button><i class="fa-solid fa-burger"></i><span>Hamburguer</span></button>
+      <button><i class="fa-solid fa-pizza-slice"></i><span>Pizza</span></button>
+      <button><i class="fa-solid fa-cookie-bite"></i><span>Sobremesas</span></button>
+      <button><i class="fa-solid fa-wine-glass"></i><span>Bebidas</span></button>
+    </div>
+
+
+    <div class="menu-grid-group">
+      <h3>Burgers</h3>
+      <div class="menu-grid">
+        <div class="card"><img src="./assets/imgs/menu/burger_1.png">
+          <h4>QUEIJO</h4>
+          <p>R$ 25,00</p>
+        </div>
+        <div class="card"><img src="./assets/imgs/menu/burger_2.png">
+          <h4>MISTO</h4>
+          <p>R$ 28,00</p>
+        </div>
+        <div class="card"><img src="./assets/imgs/menu/burger_3.png">
+          <h4>CARNE</h4>
+          <p>R$ 25,00</p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- menu -->
+    <div class="menu-grid-group">
+      <h3>Pizzas</h3>
+      <div class="menu-grid">
+        <div class="card"><img src="./assets/imgs/menu/pizza_4.png">
+          <h4>FRANGO</h4>
+          <p>R$ 18,00</p>
+        </div>
+        <div class="card"><img src="./assets/imgs/menu/pizza_5.png">
+          <h4>CHOCOLATE</h4>
+          <p>R$ 15,00</p>
+        </div>
+        <div class="card"><img src="./assets/imgs/menu/pizza_6.png">
+          <h4>CHOCOLATE</h4>
+          <p>R$ 15,00</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- footer -->
-  </body>
+  <!-- footer -->
+</body>
+
 </html>

@@ -1,0 +1,77 @@
+.menu {
+    background: #dedede;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.menu h2 {
+    font-size: 2rem;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.filters button {
+    display: flex;
+    align-items: center;
+    background: var(--white-color);
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 0.8rem;
+}
+
+.filters button:hover {
+    background-color: var(--light-gray-color);
+}
+
+.filters button i {
+    font-size: 1.2rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.menu-grid-group h3 {
+    text-align: left;
+    margin-left: 0;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.menu-grid-group {
+    padding: 0 2rem;
+}
+
+.card {
+    background: var(--white-color);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.card img {
+    width: 12rem;
+    border-radius: 8px;
+}
+
+.card h4 {
+    margin: 1rem 0 5px;
+}
+
+.card p {
+    color: red;
+    margin-top: 1rem;
+}
