@@ -1,0 +1,20 @@
+.footer {
+    background: #2d2d3a;
+    color: white;
+    padding: 2rem 1rem;
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+}
+
+.footer h4 {
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
