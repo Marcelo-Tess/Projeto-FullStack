@@ -11,7 +11,9 @@
 .header__content {
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: space-between; /* distribui espaço */
+  padding: 0 24px;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -54,4 +56,10 @@
 .user-button img {
   width: 32px;
   height: 32px;
+}
+
+@media (max-width: 840px) {
+  .nav__link {
+    display: none;
+  }
 }
