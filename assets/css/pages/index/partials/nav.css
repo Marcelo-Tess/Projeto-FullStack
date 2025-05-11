@@ -1,10 +1,11 @@
-/* NavBar Tela início */
 .header {
   background-color: var(--white-color);
   padding: 16px 0;
   border-bottom: 2px solid var(--gray-color);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header__content {
@@ -13,23 +14,22 @@
   position: relative;
 }
 
-/* Logo com espaçamento da borda esquerda */
 .logo {
   color: brown;
   font-size: 1.5rem;
   margin-left: 24px;
 }
 
-/* Centraliza a nav e aumenta o espaçamento entre os links */
 .nav {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 40px; /* espaçamento entre os links */
+  gap: 40px; 
 }
 
 .nav__link {
+  position: relative;
   color: var(--black-color);
   text-decoration: none;
   font-weight: 500;
@@ -40,7 +40,6 @@
   color: var(--red-color);
 }
 
-/* Botão do usuário no canto superior direito */
 .user-button {
   position: absolute;
   top: 50%;

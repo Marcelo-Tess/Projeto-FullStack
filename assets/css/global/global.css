@@ -8,9 +8,13 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif; 
-  background-color: var(--white-color); 
+  font-family: Arial, sans-serif;
+  background-color: var(--white-color);
   color: var(--black-color);
   line-height: 1.6;
 }

@@ -1,10 +1,10 @@
-.menu {
+#menu {
     background: #dedede;
     padding: 2rem 1rem;
     text-align: center;
 }
 
-.menu h2 {
+#menu h2 {
     font-size: 2rem;
 }
 

@@ -1,4 +1,4 @@
-.footer {
+#footer {
     background: #2d2d3a;
     color: white;
     padding: 2rem 1rem;
@@ -10,11 +10,11 @@
     gap: 2rem;
 }
 
-.footer h4 {
+#footer h4 {
     margin-bottom: 10px;
 }
 
-.footer p {
+#footer p {
     font-size: 14px;
     margin-bottom: 6px;
 }

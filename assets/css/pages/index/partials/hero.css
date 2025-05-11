@@ -1,4 +1,3 @@
-/* Apenas alterando a cor de 'experiência' na tela inicio */
 .red {
   color: var(--red-color);
 }
@@ -6,8 +5,8 @@
 .hero {
   background-color: var(--white-color);
   color: var(--black-color);
-  padding: 87px 5px; /* Ajuste de padding */
-  border-bottom: 0; /* Remove a borda ou ajusta a cor da borda se necessário */
+  padding: 87px 5px;
+  border-bottom: 0;
 }
 
 .hero__content {
@@ -17,7 +16,7 @@
   max-width: 1200px;
   margin: 0 auto;
   gap: 20px;
-  flex-wrap: wrap; /* Responsivo */
+  flex-wrap: wrap; 
 }
 
 .hero__text {
@@ -27,7 +26,7 @@
 
 .hero__title {
   font-size: 2.5rem;
-  margin-bottom: 16px; /* margem */
+  margin-bottom: 16px; 
 }
 
 .hero__image {
@@ -41,11 +40,11 @@
   border-radius: 12px;
 }
 
-/* Botão de fazer pedido tela Inicio */
+
 .hero__button {
   display: inline-block;
-  margin-top: 24px; /* Ajuste conforme necessário */
-  margin-bottom: 32px; /* Adiciona um espaço abaixo do botão */
+  margin-top: 24px; 
+  margin-bottom: 32px; 
   padding: 12px 24px;
   background-color: var(--black-color);
   color: var(--white-color);
@@ -63,9 +62,9 @@
 }
 
 .carousel {
-  margin-top: 32px; /* controle do espaçamento entre os elementos */
-  margin-bottom: 0; /* Verificar se há margem inferior */
-  padding: 0; /* o padding  pode estar causando espaço extra */
+  margin-top: 32px; 
+  margin-bottom: 0; 
+  padding: 0; 
   overflow: hidden;
   width: 100%;
   max-width: 600px;
