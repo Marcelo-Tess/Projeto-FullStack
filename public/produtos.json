@@ -1,0 +1,47 @@
+{
+    "produtos":[
+        {
+            "id":1,
+            "nome":"Hamburguer Simples",
+            "descricao":"Pão, carne, queijo e alface",
+            "preco":10.00,
+            "imagem":"/Imagens/pngwing.png"
+        },
+        {
+            "id":2,
+            "nome":"Hamburguer Duplo",
+            "descricao":"Pão, duas carnes, queijo, alface e tomate",
+            "preco":15.00,
+            "imagem":"/Imagens/pngwing2.png"
+           
+        },
+        {
+            "id":3,
+            "nome":"Cheeseburguer",
+            "descricao":"Pão, carne, queijo cheddar, cebola e picles",
+            "preco":12.50,
+            "imagem":"/Imagens/pngwing3.png"
+        },
+        {
+            "id":4,
+            "nome":"Hamburguer Vegano",
+            "descricao":"Pão integral, hambúrguer de grão-de-bico, alface e tomate",
+            "preco":11.00,
+           "imagem": "/Imagens/pizza.png"
+        },
+        {
+            "id":5,
+            "nome":"Hamburguer com Bacon",
+            "descricao":"Pão, carne, queijo, bacon crocante e maionese",
+            "preco":14.00,
+            "imagem":"/Imagens/pizza2.png"
+        },
+        {
+            "id":6,
+            "nome":"Hamburguer de Frango",
+            "descricao":"Pão, filé de frango grelhado, alface e maionese",
+            "preco":13.00,
+            "imagem":"/Imagens/pizza3.png"
+        }
+    ]
+}
