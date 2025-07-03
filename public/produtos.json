@@ -4,6 +4,7 @@
             "id":1,
             "nome":"Hamburguer Simples",
             "descricao":"Pão, carne, queijo e alface",
+            "categoria":"Hamburguer",
             "preco":10.00,
             "imagem":"/Imagens/pngwing.png"
         },
@@ -11,6 +12,7 @@
             "id":2,
             "nome":"Hamburguer Duplo",
             "descricao":"Pão, duas carnes, queijo, alface e tomate",
+            "categoria":"Hamburguer",
             "preco":15.00,
             "imagem":"/Imagens/pngwing2.png"
            
@@ -19,27 +21,31 @@
             "id":3,
             "nome":"Cheeseburguer",
             "descricao":"Pão, carne, queijo cheddar, cebola e picles",
+            "categoria":"Hamburguer",
             "preco":12.50,
             "imagem":"/Imagens/pngwing3.png"
         },
         {
             "id":4,
-            "nome":"Hamburguer Vegano",
-            "descricao":"Pão integral, hambúrguer de grão-de-bico, alface e tomate",
+            "nome":"Pizza Vegana",
+            "descricao":"Pizza com massa integral, molho de tomate, legumes grelhados e queijo vegano",
+            "categoria":"Pizza",
             "preco":11.00,
            "imagem": "/Imagens/pizza.png"
         },
         {
             "id":5,
-            "nome":"Hamburguer com Bacon",
-            "descricao":"Pão, carne, queijo, bacon crocante e maionese",
+            "nome":"Pizza Margherita",
+            "descricao":"Massa fina, molho de tomate, queijo mussarela e manjericão",
+            "categoria":"Pizza",
             "preco":14.00,
             "imagem":"/Imagens/pizza2.png"
         },
         {
             "id":6,
-            "nome":"Hamburguer de Frango",
-            "descricao":"Pão, filé de frango grelhado, alface e maionese",
+            "nome":"Pizza de Frango",
+            "descricao":"Massa fina, molho de tomate, frango desfiado, cebola e azeitonas",
+            "categoria":"Pizza",
             "preco":13.00,
             "imagem":"/Imagens/pizza3.png"
         }
