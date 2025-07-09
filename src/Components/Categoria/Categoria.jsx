@@ -9,7 +9,7 @@ const Categories = () => {
   ];
 
   return (
-    <div className="flex overflow-x-auto gap-4 py-4 pl-0">
+    <div className="flex  flex-col md:flex-row overflow-x-auto gap-4 py-4 pl-0">
       {items.map((item, index) => (
         <div key={index} className="min-w-[150px] rounded-lg overflow-hidden shadow">
           <img src={item.image} alt={item.name} className="w-full h-24 object-cover" />

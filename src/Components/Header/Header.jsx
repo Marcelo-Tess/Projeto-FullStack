@@ -14,7 +14,7 @@ const Header = () => {
         <button className="mt-6 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
           Fazer Pedido
         </button>
-     <Categories />
+     <Categories  />
       </div>
 
       {/* Imagem */}
