@@ -48,6 +48,39 @@
             "categoria":"Pizza",
             "preco":13.00,
             "imagem":"/Imagens/pizza3.png"
+        },
+        {
+            "id":7,
+            "nome":"Pizza Pepperoni",
+            "descricao":"Massa fina, molho de tomate, queijo mussarela e fatias de pepperoni",
+            "categoria":"Pizza",
+            "preco":9.00,
+            "imagem":"/Imagens/pizza4.png"
+        },
+        {
+            "id":8,
+            "nome":"Hot Dog Especial",
+            "descricao":"Pão, salsicha, cebola caramelizada, mostarda e ketchup",
+            "categoria":"Hotdog",
+            "preco":10.50,
+            "imagem":"/Imagens/hotdog.png"
+        },
+        {
+            "id":9,
+            "nome":"Pizza Hut",
+            "descricao":"Massa fina, molho de tomate, queijo mussarela e pepperoni",
+            "categoria":"Pizza",
+            "preco":8.00,
+            "imagem":"/Imagens/pizza5.png"
+        },
+        {
+            "id":10,
+            "nome":"Hot Dog Tradicional",
+            "descricao":"Pão, salsicha, cebola e mostarda",
+            "categoria":"Hotdog",
+            "preco":12.00,
+            "imagem":"/Imagens/hotdog2.png"
         }
+
     ]
 }
