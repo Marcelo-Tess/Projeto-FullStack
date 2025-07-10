@@ -33,7 +33,7 @@ const Nav = () => {
             <a href="/cardapio" className="text-gray-600 hover:text-red-600 hover:underline transition duration-200">Cardápio</a>
           </li>
           <li>
-            <a href="/estabelicimento" className="text-gray-600 hover:text-red-600 hover:underline transition duration-200">Estabelecimento</a>
+            <a href="/estabelecimento" className="text-gray-600 hover:text-red-600  hover:underline transition duration-200">Estabelecimento</a>
           </li>
         </ul>
 
