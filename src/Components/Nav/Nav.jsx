@@ -36,7 +36,7 @@ const Nav = () => {
           <Link to="/carrinho" className="hover:text-red-600 transition duration-200">
             <i className="fas fa-shopping-cart"></i> Carrinho
           </Link>
-          <Link to="/login" className="hover:text-red-600 transition duration-200 bg-gray-200 px-4 py-2 rounded-full flex items-center space-x-2">
+          <Link to="/login" className={ `hover:text-red-600 transition duration-200 ${changeColor ? 'bg-[#FF0000]' : 'bg-gray-200'} px-4 py-2 rounded-full flex items-center space-x-2`}>
             <i className="fas fa-user bg-black"></i> Login
           </Link>
         </div>
