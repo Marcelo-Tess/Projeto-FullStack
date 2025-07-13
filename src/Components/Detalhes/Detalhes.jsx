@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Detalhes = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [produto, setProduto] = useState(null);
   const [quantidade, setQuantidade] = useState(1);
@@ -55,7 +57,10 @@ const Detalhes = () => {
             <span className="text-xl font-bold text-red-600">
               R${(produto.preco * quantidade).toFixed(2).replace('.', ',')}
             </span>
-            <button className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-6 rounded-full transition duration-200">
+            <button
+              onClick={() => navigate('/nao-implementado')}
+              className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-6 rounded-full transition duration-200"
+            >
               Comprar
             </button>
           </div>

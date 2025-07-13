@@ -1,8 +1,11 @@
 // src/components/Header.jsx
 import React from 'react'
-import foodImage from '../../assets/imageHeader.png'; 
+import foodImage from '../../assets/imageHeader.png';
 import Categories from '../Categoria/Categoria';
+import { useNavigate } from 'react-router-dom';
+
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="w-full bg-white mt-20 py-10 px-6 flex flex-col lg:flex-row items-center justify-between gap-10">
       {/* Texto e Botão */}
@@ -11,10 +14,14 @@ const Header = () => {
           Não é só comida,<br />
           é uma <span className="text-red-600">experiência</span>
         </h1>
-        <button className="mt-6 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
+        <button
+          onClick={() => navigate('/nao-implementado')}
+          className="mt-6 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition"
+        >
           Fazer Pedido
         </button>
-     <Categories  />
+
+        <Categories />
       </div>
 
       {/* Imagem */}
