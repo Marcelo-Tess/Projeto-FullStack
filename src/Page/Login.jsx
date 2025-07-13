@@ -1,5 +1,7 @@
 import Header from "../Components/Header/Header";
 import RetanguloBack from '../assets/RetanguloBack.png'
+import LogoApple from '../assets/LogoApple.png'
+import LogoGoogle from '../assets/LogoGoogle.png'
 import LogoRoxo from '../assets/LogoRoxo.png'
 import React, { useState } from 'react';
 import './login.css';
@@ -15,17 +17,23 @@ export default function Login(){
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: '100vh',
+        minHeight: '50vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '20px',
+        padding: '0px',
       }}
       
     >
       <div classname='container'>
         {}
         <div className="login-form at">
+          <div className='flex justify-center items-center p-5'>
+            <img 
+                  src={LogoRoxo} 
+                  class='w-17 h-10'
+                ></img>
+          </div>
             <input
               name="login"
               type="text"
@@ -40,8 +48,31 @@ export default function Login(){
               <a href="#">Esqueceu sua senha?</a>
             </div>
           <button onClick={"#"}>Entrar</button>
-            <div className="LinkSign">
-              <p>Não tem conta? <a href="#">Cadastra-se</a></p>
+            <div>
+              <div className="LinkSign">
+              <p>Não tem conta? <a href="#">Cadastre-se</a></p>
+            </div>
+            <div class="flex items-center my-2">
+              <hr class="flex-grow border-t border-black"></hr>
+              <span class="text-xs px-2 text-black">ou</span>
+              <hr class="flex-grow border-t border-black"></hr>
+            </div>
+            </div>
+            <div className='flex justify-center items-center gap-5'>
+              <a href="#">
+                <img 
+                  src={LogoApple} 
+                  alt="Logo Da Apple" 
+                  class="w-8"
+                ></img>
+              </a>
+              <a href="#">
+                <img 
+                  src={LogoGoogle} 
+                  alt="Logo Da Google" 
+                  class="w-7"
+                ></img>
+              </a>
             </div>
         </div>
     </div>
