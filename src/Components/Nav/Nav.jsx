@@ -33,14 +33,14 @@ const Nav = () => {
             <a href="/cardapio" className="text-gray-600 hover:text-red-600 hover:underline transition duration-200">Cardápio</a>
           </li>
           <li>
-            <a href="/estabelecimento" className="text-gray-600 hover:text-red-600  hover:underline transition duration-200">Estabelecimento</a>
+            <a href="/nao-implementado" className="text-gray-600 hover:text-red-600  hover:underline transition duration-200">Estabelecimento</a>
           </li>
         </ul>
 
         {/* Ações Desktop */}
         <div className="hidden md:flex items-center space-x-4">
-          <a href="/carrinho" className="text-gray-600 hover:text-red-600 transition duration-200">
-            <i className="fas fa-shopping-cart"></i> Carrinho
+          <a href="/cadastro" className="text-gray-600 hover:text-red-600 transition duration-200">
+            <i className="fas fa-shopping-cart"></i> Registrar-se
           </a>
           <a href="/login" className="text-gray-600 hover:text-red-600 transition duration-200 bg-gray-200 px-4 py-2 rounded-full flex items-center space-x-2">
             <i className="fas fa-user"></i> Login
@@ -62,7 +62,7 @@ const Nav = () => {
               <a href="/estabelicimento" className="block text-gray-700 hover:text-red-600">Estabelecimento</a>
             </li>
             <li>
-              <a href="/carrinho" className="block text-gray-700 hover:text-red-600">Carrinho</a>
+              <a href="/cadastro" className="block text-gray-700 hover:text-red-600">Registre-se</a>
             </li>
             <li>
               <a href="/login" className="block text-gray-700 hover:text-red-600">Login</a>
