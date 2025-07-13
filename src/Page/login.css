@@ -1,0 +1,97 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; 
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto; 
+  padding: 50px;
+  padding-top: 100px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.recuperarSenha{
+  display: flex;
+  justify-content: right;
+  font-size: 10px;
+  color: grey;
+}
+
+.LinkSign p{
+  color: #AAAAAA;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+}
+
+.LinkSign p a{
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.LinkSign p a:hover{
+  text-decoration: underline;
+}
+
+button, .BotaoEntrar {
+  padding: 12px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  text-decoration: none;
+}
+
+button:hover, .BotaoEntrar{
+  background-color: darkred;
+}
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.login-form {
+  display: none;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto; 
+  padding: 80px;
+  padding-top: 80px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.login-form.at {
+  display: flex;
+  gap: 14px;
+}
+
+
+
