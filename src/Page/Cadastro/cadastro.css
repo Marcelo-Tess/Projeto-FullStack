@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9; 
+}
+
+
+.container {
+  max-width: 500px;
+  margin: 0 auto; 
+  padding: 50px;
+  padding-top: 100px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.etapa-formulario {
+  display: none;
+  flex-direction: column;
+}
+
+.etapa-formulario.ativa {
+  display: flex;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+button, .botao-voltar {
+  padding: 12px;
+  border: none;
+  background-color: crimson;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  text-decoration: none;
+}
+
+button:hover, .botao-voltar:hover {
+  background-color: darkred;
+}
+
+.grupo-botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.botao-voltar {
+  background-color: #999;
+}
+
+.botao-voltar:hover {
+  background-color: #555;
+}
+
+.indicador-etapas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+  gap: 20px;
+}
+
+.etapa {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  color: #fff;
+}
+
+.etapa.ativa {
+  background-color: crimson;
+}
+
+.linha-etapas {
+  position: absolute;
+  height: 2px;
+  background-color: #ccc;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin: 5px 0 10px 0;
+}
+
+.pular-etapa {
+  color: #d10035; 
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.pular-etapa:hover {
+  color: #a80028;
+}
+
+
