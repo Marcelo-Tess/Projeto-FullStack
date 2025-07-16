@@ -14,6 +14,7 @@ const Cadastro = () => {
     senha: '',
     senhaConfirma: '',
     rua: '',
+    numero: '',
     bairro: '',
     cep: '',
     complemento: '',
@@ -44,6 +45,7 @@ const Cadastro = () => {
   const validarEtapa2 = () => {
     let novosErros = {};
     if (!formData.rua.trim()) novosErros.rua = 'Rua obrigatória';
+    if (!formData.numero.trim()) novosErros.numero = 'Número obrigatório';
     if (!formData.bairro.trim()) novosErros.bairro = 'Bairro obrigatório';
     if (!formData.cep.trim()) novosErros.cep = 'CEP obrigatório';
 
@@ -56,6 +58,7 @@ const Cadastro = () => {
       if (validarEtapa1()) setEtapaAtual(2);
     } else if (etapaAtual === 2) {
       if (validarEtapa2()) {
+        localStorage.setItem('usuario', JSON.stringify(formData));
         navigate('/cadastrofinalizado');
       }
     }
@@ -92,148 +95,155 @@ const Cadastro = () => {
     }
   };
 
-  
+  return (
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '20px',
+      }}
+    >
+      <div className="container">
+        <div className="indicador-etapas">
+          <div className={`etapa ${etapaAtual === 1 ? 'ativa' : ''}`}>
+            <FaUser className="icone-etapa" />
+            <div className="bolinha"></div>
+          </div>
+          <div className={`etapa ${etapaAtual === 2 ? 'ativa' : ''}`}>
+            <FaMapMarkerAlt className="icone-etapa" />
+            <div className="bolinha"></div>
+          </div>
+          <div className="linha-etapas"></div>
+        </div>
 
-return (
-  <div
-    style={{
-      backgroundImage: `url(${backgroundImg})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      minHeight: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '20px',
-    }}
-  >
-    <div className="container">
-      { }
-      <div className="indicador-etapas">
-        <div className={`etapa ${etapaAtual === 1 ? 'ativa' : ''}`}>
-          <FaUser className="icone-etapa" />
-          <div className="bolinha"></div>
-        </div>
-        <div className={`etapa ${etapaAtual === 2 ? 'ativa' : ''}`}>
-          <FaMapMarkerAlt className="icone-etapa" />
-          <div className="bolinha"></div>
-        </div>
-        <div className="linha-etapas"></div>
+        {etapaAtual === 1 && (
+          <div className="etapa-formulario ativa">
+            <input
+              name="nome"
+              type="text"
+              placeholder="Nome Completo"
+              value={formData.nome}
+              onChange={handleChange}
+            />
+            {errors.nome && <p className="error">{errors.nome}</p>}
+
+            <input
+              name="email"
+              type="email"
+              placeholder="E-mail*"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <p className="error">{errors.email}</p>}
+
+            <input
+              name="emailConfirma"
+              type="email"
+              placeholder="Confirmar E-mail*"
+              value={formData.emailConfirma}
+              onChange={handleChange}
+            />
+            {errors.emailConfirma && <p className="error">{errors.emailConfirma}</p>}
+
+            <input
+              name="senha"
+              type="password"
+              placeholder="Senha*"
+              value={formData.senha}
+              onChange={handleChange}
+            />
+            {errors.senha && <p className="error">{errors.senha}</p>}
+
+            <input
+              name="senhaConfirma"
+              type="password"
+              placeholder="Confirmar Senha*"
+              value={formData.senhaConfirma}
+              onChange={handleChange}
+            />
+            {errors.senhaConfirma && <p className="error">{errors.senhaConfirma}</p>}
+
+            <div className="grupo-botoes">
+              <div></div>
+              <button onClick={proximaEtapa}>Próximo</button>
+            </div>
+          </div>
+        )}
+
+        {etapaAtual === 2 && (
+          <div className="etapa-formulario ativa">
+            <input
+              name="rua"
+              type="text"
+              placeholder="Rua"
+              value={formData.rua}
+              onChange={handleChange}
+            />
+            {errors.rua && <p className="error">{errors.rua}</p>}
+
+            <input
+              name="numero"
+              type="text"
+              placeholder="Número"
+              value={formData.numero}
+              onChange={handleChange}
+            />
+            {errors.numero && <p className="error">{errors.numero}</p>}
+
+            <input
+              name="bairro"
+              type="text"
+              placeholder="Bairro"
+              value={formData.bairro}
+              onChange={handleChange}
+            />
+            {errors.bairro && <p className="error">{errors.bairro}</p>}
+
+            <input
+              name="cep"
+              type="text"
+              placeholder="CEP"
+              value={formData.cep}
+              onChange={handleChange}
+              onBlur={getAddress}
+            />
+            {errors.cep && <p className="error">{errors.cep}</p>}
+
+            <input
+              name="complemento"
+              type="text"
+              placeholder="Complemento"
+              value={formData.complemento}
+              onChange={handleChange}
+            />
+
+            <div className="grupo-botoes">
+              <button className="botao-voltar" onClick={etapaAnterior}>Voltar</button>
+
+              <p
+                className="pular-etapa"
+                onClick={() => {
+                  localStorage.setItem('usuario', JSON.stringify(formData));
+                  navigate('/cadastrofinalizado');
+                }}
+                style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+              >
+                Pular Etapa
+              </p>
+
+              <button onClick={proximaEtapa}>Finalizar</button>
+            </div>
+          </div>
+        )}
       </div>
-
-      { }
-      {etapaAtual === 1 && (
-        <div className="etapa-formulario ativa">
-          <input
-            name="nome"
-            type="text"
-            placeholder="Nome Completo"
-            value={formData.nome}
-            onChange={handleChange}
-          />
-          {errors.nome && <p className="error">{errors.nome}</p>}
-
-          <input
-            name="email"
-            type="email"
-            placeholder="E-mail*"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <p className="error">{errors.email}</p>}
-
-          <input
-            name="emailConfirma"
-            type="email"
-            placeholder="Confirmar E-mail*"
-            value={formData.emailConfirma}
-            onChange={handleChange}
-          />
-          {errors.emailConfirma && <p className="error">{errors.emailConfirma}</p>}
-
-          <input
-            name="senha"
-            type="password"
-            placeholder="Senha*"
-            value={formData.senha}
-            onChange={handleChange}
-          />
-          {errors.senha && <p className="error">{errors.senha}</p>}
-
-          <input
-            name="senhaConfirma"
-            type="password"
-            placeholder="Confirmar Senha*"
-            value={formData.senhaConfirma}
-            onChange={handleChange}
-          />
-          {errors.senhaConfirma && <p className="error">{errors.senhaConfirma}</p>}
-
-          <div className="grupo-botoes">
-            <div></div>
-            <button onClick={proximaEtapa}>Próximo</button>
-          </div>
-        </div>
-      )}
-
-      { }
-      {etapaAtual === 2 && (
-        <div className="etapa-formulario ativa">
-          <input
-            name="rua"
-            type="text"
-            placeholder="Rua"
-            value={formData.rua}
-            onChange={handleChange}
-          />
-          {errors.rua && <p className="error">{errors.rua}</p>}
-
-          <input
-            name="bairro"
-            type="text"
-            placeholder="Bairro"
-            value={formData.bairro}
-            onChange={handleChange}
-          />
-          {errors.bairro && <p className="error">{errors.bairro}</p>}
-
-          <input
-            name="cep"
-            type="text"
-            placeholder="CEP"
-            value={formData.cep}
-            onChange={handleChange}
-            onBlur={getAddress}
-          />
-          {errors.cep && <p className="error">{errors.cep}</p>}
-
-          <input
-            name="complemento"
-            type="text"
-            placeholder="Complemento"
-            value={formData.complemento}
-            onChange={handleChange}
-          />
-
-          <div className="grupo-botoes">
-            <button className="botao-voltar" onClick={etapaAnterior}>Voltar</button>
-
-            <p
-              className="pular-etapa"
-              onClick={() => navigate('/cadastrofinalizado')}
-              style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
-            >
-              Pular Etapa
-            </p>
-
-            <button onClick={proximaEtapa}>Finalizar</button>
-          </div>
-        </div>
-      )}
     </div>
-  </div>
-);
+  );
 };
 
 export default Cadastro;

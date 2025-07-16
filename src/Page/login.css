@@ -1,60 +1,73 @@
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9; 
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.login-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.container {
-  max-width: 500px;
-  margin: 0 auto; 
-  padding: 50px;
-  padding-top: 100px;
-  background: white;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-input {
-  padding: 12px;
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.login-form input {
+  padding: 12px 15px;
+  margin-bottom: 15px;
   border-radius: 10px;
   border: 1px solid #ddd;
   font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.recuperarSenha{
+.recuperarSenha {
   display: flex;
-  justify-content: right;
-  font-size: 10px;
-  color: grey;
-}
-
-.LinkSign p{
-  color: #AAAAAA;
-  text-decoration: none;
-  font-weight: 600;
+  justify-content: flex-end;
   font-size: 12px;
-  text-align: center;
+  color: #666;
+  margin: -10px 0 15px 0;
 }
 
-.LinkSign p a{
-  color: #007BFF;
+.recuperarSenha a {
+  color: #666;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 12px;
 }
 
-.LinkSign p a:hover{
+.recuperarSenha a:hover {
   text-decoration: underline;
 }
 
-button, .BotaoEntrar {
+.login-form button {
   padding: 12px;
   border: none;
   background-color: crimson;
@@ -62,36 +75,63 @@ button, .BotaoEntrar {
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.login-form button:hover {
+  background-color: #b30000;
+}
+
+.LinkSign p {
+  color: #AAAAAA;
+  font-weight: 600;
+  font-size: 12px;
   text-align: center;
+  margin-bottom: 15px;
+}
+
+.LinkSign a {
+  color: #007BFF;
   text-decoration: none;
 }
 
-button:hover, .BotaoEntrar{
-  background-color: darkred;
+.LinkSign a:hover {
+  text-decoration: underline;
 }
-.botoes {
+
+.line-with-text {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  align-items: center;
+  margin: 15px 0;
 }
 
-.login-form {
-  display: none;
-  flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto; 
-  padding: 80px;
-  padding-top: 80px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.line-with-text hr {
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid #ddd;
 }
 
-.login-form.at {
+.line-with-text span {
+  padding: 0 10px;
+  color: #666;
+  font-size: 12px;
+}
+
+.social-logins {
   display: flex;
-  gap: 14px;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
 }
 
+.social-logins img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
 
-
+.social-logins img:hover {
+  transform: scale(1.1);
+}
