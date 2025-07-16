@@ -6,7 +6,7 @@ import { TbMilkshake } from "react-icons/tb";
 
 const Filtro = ({ filtroPorPizza, filtroPorHamburgueres, milkShake, hotDogs }) => {
   return (
-    <div className="max-w-3xl mx-auto px-1 bg-white rounded-lg shadow-md py-6">
+    <div className="max-w-3xl mx-auto px-6 bg-white rounded-lg shadow-md py-6">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
         <button
           onClick={filtroPorPizza}

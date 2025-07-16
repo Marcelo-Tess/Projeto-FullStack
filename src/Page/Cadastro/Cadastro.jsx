@@ -14,6 +14,7 @@ const Cadastro = () => {
     senha: '',
     senhaConfirma: '',
     rua: '',
+    numero: '',
     bairro: '',
     cep: '',
     complemento: '',
@@ -45,6 +46,7 @@ const Cadastro = () => {
   const validarEtapa2 = () => {
     let novosErros = {};
     if (!formData.rua.trim()) novosErros.rua = 'Rua obrigatória';
+    if (!formData.numero.trim()) novosErros.numero = 'Número obrigatório';
     if (!formData.bairro.trim()) novosErros.bairro = 'Bairro obrigatório';
     if (!formData.cep.trim()) novosErros.cep = 'CEP obrigatório';
     if (!formData.telefone.trim()) novosErros.telefone = 'Telefone obrigatório';
@@ -58,6 +60,7 @@ const Cadastro = () => {
       if (validarEtapa1()) setEtapaAtual(2);
     } else if (etapaAtual === 2) {
       if (validarEtapa2()) {
+        localStorage.setItem('usuario', JSON.stringify(formData));
         navigate('/cadastrofinalizado');
       }
     }
@@ -65,6 +68,33 @@ const Cadastro = () => {
 
   const etapaAnterior = () => {
     setEtapaAtual(prev => (prev > 1 ? prev - 1 : prev));
+  };
+
+  const getAddress = async () => {
+    const cepLimpo = formData.cep.replace(/\D/g, '');
+
+    if (cepLimpo.length !== 8) {
+      setErrors(prev => ({ ...prev, cep: 'CEP inválido' }));
+      return;
+    }
+
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+      const data = await response.json();
+
+      if (data.erro) {
+        setErrors(prev => ({ ...prev, cep: 'CEP não encontrado' }));
+      } else {
+        setFormData(prev => ({
+          ...prev,
+          rua: data.logradouro || '',
+          bairro: data.bairro || '',
+          complemento: data.complemento || ''
+        }));
+      }
+    } catch (error) {
+      setErrors(prev => ({ ...prev, cep: 'Erro ao buscar CEP' }));
+    }
   };
 
   return (
@@ -160,6 +190,15 @@ const Cadastro = () => {
             {errors.rua && <p className="error">{errors.rua}</p>}
 
             <input
+              name="numero"
+              type="text"
+              placeholder="Número"
+              value={formData.numero}
+              onChange={handleChange}
+            />
+            {errors.numero && <p className="error">{errors.numero}</p>}
+
+            <input
               name="bairro"
               type="text"
               placeholder="Bairro"
@@ -174,6 +213,7 @@ const Cadastro = () => {
               placeholder="CEP"
               value={formData.cep}
               onChange={handleChange}
+              onBlur={getAddress}
             />
             {errors.cep && <p className="error">{errors.cep}</p>}
 
@@ -199,7 +239,10 @@ const Cadastro = () => {
 
               <p
                 className="pular-etapa"
-                onClick={() => navigate('/cadastrofinalizado')}
+                onClick={() => {
+                  localStorage.setItem('usuario', JSON.stringify(formData));
+                  navigate('/cadastrofinalizado');
+                }}
                 style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
               >
                 Pular Etapa
