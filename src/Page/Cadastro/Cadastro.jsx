@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUser, FaMapMarkerAlt } from 'react-icons/fa'; 
+import { FaUser, FaMapMarkerAlt } from 'react-icons/fa';
 import backgroundImg from '../../assets/background_cadastro.png';
 import './Cadastro.css';
 
@@ -17,6 +17,7 @@ const Cadastro = () => {
     bairro: '',
     cep: '',
     complemento: '',
+    telefone: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -46,6 +47,7 @@ const Cadastro = () => {
     if (!formData.rua.trim()) novosErros.rua = 'Rua obrigatória';
     if (!formData.bairro.trim()) novosErros.bairro = 'Bairro obrigatório';
     if (!formData.cep.trim()) novosErros.cep = 'CEP obrigatório';
+    if (!formData.telefone.trim()) novosErros.telefone = 'Telefone obrigatório';
 
     setErrors(novosErros);
     return Object.keys(novosErros).length === 0;
@@ -80,7 +82,6 @@ const Cadastro = () => {
       }}
     >
       <div className="container">
-        {}
         <div className="indicador-etapas">
           <div className={`etapa ${etapaAtual === 1 ? 'ativa' : ''}`}>
             <FaUser className="icone-etapa" />
@@ -93,7 +94,6 @@ const Cadastro = () => {
           <div className="linha-etapas"></div>
         </div>
 
-        {}
         {etapaAtual === 1 && (
           <div className="etapa-formulario ativa">
             <input
@@ -148,7 +148,6 @@ const Cadastro = () => {
           </div>
         )}
 
-        {}
         {etapaAtual === 2 && (
           <div className="etapa-formulario ativa">
             <input
@@ -177,6 +176,15 @@ const Cadastro = () => {
               onChange={handleChange}
             />
             {errors.cep && <p className="error">{errors.cep}</p>}
+
+            <input
+              name="telefone"
+              type="tel"
+              placeholder="Telefone"
+              value={formData.telefone}
+              onChange={handleChange}
+            />
+            {errors.telefone && <p className="error">{errors.telefone}</p>}
 
             <input
               name="complemento"
