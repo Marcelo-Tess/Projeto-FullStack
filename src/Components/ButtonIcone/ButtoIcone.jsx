@@ -1,11 +1,11 @@
 import React from 'react'
-import { StyledButton } from './ButtonStyled'
+import { StyledButtonIcon } from './ButtonIconStyled'
 
 const Button = ({ bgcolor, textcolor, children, icon, ...rest }) => {
   return (
-    <StyledButton bgcolor={bgcolor} textcolor={textcolor} icon={icon} {...rest}>
+    <StyledButtonIcon bgcolor={bgcolor} textcolor={textcolor} icon={icon} {...rest}>
       {children}
-    </StyledButton>
+    </StyledButtonIcon>
   )
 }
 
