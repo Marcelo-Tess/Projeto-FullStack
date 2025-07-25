@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Button from '../Button/Button';
 
 const Detalhes = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Detalhes = () => {
   if (!produto) return <p className="text-center mt-10">Carregando produto...</p>;
 
   return (
+    <div className=' min-h-screen flex justify-center items-center'>
     <div className="max-w-4xl mt-20 mx-auto px-4 py-10 bg-white rounded-lg shadow-md grid md:grid-cols-2 gap-10">
       <img
         src={produto.imagem}
@@ -40,14 +42,14 @@ const Detalhes = () => {
           <div className="flex items-center gap-4 mb-4">
             <button
               onClick={handleDecrement}
-              className="w-8 h-8 text-white bg-red-500 rounded hover:bg-red-600"
+              className="w-8 h-8 text-white text-center bg-red-500 rounded hover:bg-red-600"
             >
               −
             </button>
             <span className="text-xl font-semibold">{quantidade}</span>
             <button
               onClick={handleIncrement}
-              className="w-8 h-8 text-white bg-green-500 rounded hover:bg-green-600"
+              className="w-8 h-8 text-white text-center bg-green-500 rounded hover:bg-green-600"
             >
               +
             </button>
@@ -57,15 +59,11 @@ const Detalhes = () => {
             <span className="text-xl font-bold text-red-600">
               R${(produto.preco * quantidade).toFixed(2).replace('.', ',')}
             </span>
-            <button
-              onClick={() => navigate('/nao-implementado')}
-              className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-6 rounded-full transition duration-200"
-            >
-              Comprar
-            </button>
+            <Button  bgcolor="rgb(185, 28, 28)" textcolor="#fff" onClick={() => navigate('/nao-implementado')}>Comprar</Button>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
