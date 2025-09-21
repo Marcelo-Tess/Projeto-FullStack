@@ -7,7 +7,7 @@ import Login from "./Page/Login"
 import Cadastro from "./Page/Cadastro/Cadastro";
 import CadastroFinalizado from "./Page/Cadastro/CadastroFinalizado";  
 import NaoImplementado from "./Page/NaoImplementado/NaoImplementado";
-
+import CardapioPage from "./Page/CardapioPage";
 
 const App = () => {
   return (
@@ -21,6 +21,7 @@ const App = () => {
             <Route path="/cadastrofinalizado" element={<CadastroFinalizado />} />
             <Route path="/detalhes/:id" element={<Detalhes />} />
             <Route path="/nao-implementado" element={<NaoImplementado />} />
+            <Route path="/cardapio" element={<CardapioPage/>}/>
           </Route>
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/login" element={<Login />} />
