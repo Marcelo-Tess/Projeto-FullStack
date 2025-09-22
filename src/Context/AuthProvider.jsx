@@ -15,20 +15,31 @@ const AuthProvider = ({children}) => {
         setLoading(true)
         try {
             const response = await api.post('/api/users/login', data, {
-                headers: { "Content-Type": "application/json" }
+                headers: {"Content-Type": "application/json"}
             })
-            const res = response.data
-            if(res.token){
-                setToken(res.token)
-                localStorage.setItem("site", res.token)
+            const res = response.data || {}
+
+            // Try multiple locations/names for the token
+            const tokenFromHeader = (response.headers?.authorization || response.headers?.Authorization || "").replace(/^Bearer\s+/i, '')
+            const tokenCandidate = res.token 
+                || res.accessToken 
+                || res.jwt 
+                || res.data?.token 
+                || res.data?.accessToken 
+                || res.data?.jwt 
+                || tokenFromHeader
+
+            if(tokenCandidate){
+                setToken(tokenCandidate)
+                localStorage.setItem("site", tokenCandidate)
                 
-                const decodeUser = jwtDecode(res.token)
+                const decodeUser = jwtDecode(tokenCandidate)
                 setUser(decodeUser)
 
                 setError("")
                 navigate('/')
             }else{
-                throw new Error(res.message||  "Login falhou")
+                throw new Error(res.message || "Login falhou: token ausente na resposta")
             }
         } catch (error) {
             console.error("Login failed:", error.message);
@@ -42,10 +53,10 @@ const AuthProvider = ({children}) => {
                   setError("Usuário não encontrado.");
                   break;
                 default:
-                  setError("Erro ao fazer login. Tente novamente.");
+                  setError(error.response.data?.message || "Erro ao fazer login. Tente novamente.");
               }
             } else {
-              setError("Erro de conexão. Verifique sua internet.");
+              setError(error.message || "Erro de conexão. Verifique sua internet.");
             }
           }
         
@@ -92,3 +103,5 @@ export const useAuth = ()=>{
     }
     return context
 }
+
+

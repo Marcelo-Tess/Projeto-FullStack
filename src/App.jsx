@@ -7,15 +7,15 @@ import Login from "./Page/Login/Login"
 import Cadastro from "./Page/Cadastro/Cadastro";
 import CadastroFinalizado from "./Page/Cadastro/CadastroFinalizado";  
 import NaoImplementado from "./Page/NaoImplementado/NaoImplementado";
+import AuthProvider from "./Context/AuthProvider.jsx";
 
 
 const App = () => {
   return (
     <Router>
-      
+      <AuthProvider>
         <Routes>
           {}
-          
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/cadastrofinalizado" element={<CadastroFinalizado />} />
@@ -24,9 +24,8 @@ const App = () => {
           </Route>
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/login" element={<Login />} />
-          
-          
         </Routes>
+      </AuthProvider>
     </Router>
   );
 };

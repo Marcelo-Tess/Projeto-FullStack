@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../Context/AuthProvider';
+import { useAuth } from '../../Context/AuthProvider.jsx';
 import RetanguloBack from '../../assets/RetanguloBack.png';
 import LogoApple from '../../assets/LogoApple.png';
 import LogoGoogle from '../../assets/LogoGoogle.png';
