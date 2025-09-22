@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import RetanguloBack from '../assets/RetanguloBack.png';
-import LogoApple from '../assets/LogoApple.png';
-import LogoGoogle from '../assets/LogoGoogle.png';
-import LogoRoxo from '../assets/LogoRoxo.png';
+import { useAuth } from '../../Context/AuthProvider';
+import RetanguloBack from '../../assets/RetanguloBack.png';
+import LogoApple from '../../assets/LogoApple.png';
+import LogoGoogle from '../../assets/LogoGoogle.png';
+import LogoRoxo from '../../assets/LogoRoxo.png';
 import './login.css';
 
 export default function Login() {
   const [formData, setFormData] = useState({
-    login: '',
+    email: '',
     senha: ''
   });
-  const navigate = useNavigate();
+  const { loginAction, error, loading } = useAuth();
 
   const handleChange = (e) => {
     setFormData({
@@ -20,17 +20,14 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const usuarioArmazenado = JSON.parse(localStorage.getItem('usuario'));
-    
-    if (usuarioArmazenado && 
-        (usuarioArmazenado.email === formData.login || usuarioArmazenado.nome === formData.login) && 
-        usuarioArmazenado.senha === formData.senha) {
-      localStorage.setItem('usuarioLogado', JSON.stringify(usuarioArmazenado));
-      navigate('/');
-    }
+    await loginAction({
+      data: {
+        email: formData.email,
+        senha: formData.senha
+      }
+    });
   };
 
   return (
@@ -45,10 +42,10 @@ export default function Login() {
           </div>
           
           <input
-            name="login"
-            type="text"
-            placeholder="Email ou Usuário"
-            value={formData.login}
+            name="email"
+            type="email"
+            placeholder='Digite seu e-mail'
+            value={formData.email}
             onChange={handleChange}
           />
           <input
@@ -58,10 +55,11 @@ export default function Login() {
             value={formData.senha}
             onChange={handleChange}
           />
+          {error && <div className="error-message">{error}</div>}
           <div className="recuperarSenha">
             <a href="#">Esqueceu sua senha?</a>
           </div>
-          <button type="submit">Entrar</button>
+          <button type="submit" disabled={loading}>{loading ? 'Entrando...' : 'Entrar'}</button>
           <div className="divider">
             <div className="LinkSign">
               <p>Não tem conta? <a href="/cadastro">Cadastre-se</a></p>

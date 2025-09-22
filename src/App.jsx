@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Home from "./Page/Home/Home";
 import Detalhes from "./Components/Detalhes/Detalhes";
-import Login from "./Page/Login"
+import Login from "./Page/Login/Login"
 import Cadastro from "./Page/Cadastro/Cadastro";
 import CadastroFinalizado from "./Page/Cadastro/CadastroFinalizado";  
 import NaoImplementado from "./Page/NaoImplementado/NaoImplementado";
