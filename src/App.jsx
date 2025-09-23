@@ -1,11 +1,11 @@
-
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Home from "./Page/Home/Home";
+import CardapioPage from "./Page/Cardapio/Cardapio";
 import Detalhes from "./Components/Detalhes/Detalhes";
 import Login from "./Page/Login/Login"
 import Cadastro from "./Page/Cadastro/Cadastro";
-import CadastroFinalizado from "./Page/Cadastro/CadastroFinalizado";  
+import CadastroFinalizado from "./Page/Cadastro/CadastroFinalizado";
 import NaoImplementado from "./Page/NaoImplementado/NaoImplementado";
 import CadastroEndereco from "./Page/CadastroEndereco/CadastroEndereco";
 import FinalizarPedido from "./Page/FinalizarPedido/FinalizarPedido";
@@ -20,6 +20,7 @@ const App = () => {
           {}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/cardapio" element={<CardapioPage />} />
             <Route path="/cadastrofinalizado" element={<CadastroFinalizado />} />
             <Route path="/detalhes/:id" element={<Detalhes />} />
             <Route path="/nao-implementado" element={<NaoImplementado />} />

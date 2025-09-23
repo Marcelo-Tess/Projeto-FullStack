@@ -52,11 +52,13 @@ const Cardapio = () => {
               key={produto.id}
               className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center text-center"
             >
-              <img
-                src={produto.imagem}
-                alt={produto.nome}
-                className="w-32 h-32 object-contain mb-4"
-              />
+              <div className="w-full mb-4 overflow-hidden flex items-center justify-center">
+                <img
+                  src={produto.imagem}
+                  alt={produto.nome}
+                  className="h-24 sm:h-28 md:h-32 w-auto object-contain"
+                />
+              </div>
               <h3 className="text-lg font-semibold text-gray-800">
                 {produto.nome}
               </h3>
