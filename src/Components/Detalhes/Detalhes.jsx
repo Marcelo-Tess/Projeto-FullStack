@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Button/Button';
+import { useAuth } from '../../Context/AuthProvider';
+import useApi from '../../services/useApi';
 
 const Detalhes = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { user } = useAuth();
+  const api = useApi();
   const [produto, setProduto] = useState(null);
   const [quantidade, setQuantidade] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch('/produtos.json')
@@ -20,6 +25,40 @@ const Detalhes = () => {
 
   const handleIncrement = () => setQuantidade(prev => prev + 1);
   const handleDecrement = () => setQuantidade(prev => (prev > 1 ? prev - 1 : 1));
+
+  const handleComprar = async () => {
+    // Se não estiver logado, redireciona para login
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Verifica se o usuário tem endereço cadastrado
+      const response = await api.get('/api/enderecos');
+      const enderecos = response.data.data || [];
+      
+      if (enderecos.length === 0) {
+        // Não tem endereço, vai para cadastrar endereço
+        navigate('/cadastro-endereco');
+      } else {
+        // Tem endereço, vai para finalizar pedido
+        navigate('/finalizar-pedido', { 
+          state: { 
+            produto: { ...produto, quantidade },
+            endereco: enderecos[0] // usa o primeiro endereço
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Erro ao verificar endereços:', error);
+      // Em caso de erro, assume que não tem endereço
+      navigate('/cadastro-endereco');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (!produto) return <p className="text-center mt-10">Carregando produto...</p>;
 
@@ -59,7 +98,14 @@ const Detalhes = () => {
             <span className="text-xl font-bold text-red-600">
               R${(produto.preco * quantidade).toFixed(2).replace('.', ',')}
             </span>
-            <Button  bgcolor="rgb(185, 28, 28)" textcolor="#fff" onClick={() => navigate('/nao-implementado')}>Comprar</Button>
+            <Button 
+              bgcolor="rgb(185, 28, 28)" 
+              textcolor="#fff" 
+              onClick={handleComprar}
+              disabled={loading}
+            >
+              {loading ? 'Verificando...' : 'Comprar'}
+            </Button>
           </div>
         </div>
       </div>

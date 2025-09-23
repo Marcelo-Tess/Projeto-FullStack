@@ -7,6 +7,8 @@ import Login from "./Page/Login/Login"
 import Cadastro from "./Page/Cadastro/Cadastro";
 import CadastroFinalizado from "./Page/Cadastro/CadastroFinalizado";  
 import NaoImplementado from "./Page/NaoImplementado/NaoImplementado";
+import CadastroEndereco from "./Page/CadastroEndereco/CadastroEndereco";
+import FinalizarPedido from "./Page/FinalizarPedido/FinalizarPedido";
 import AuthProvider from "./Context/AuthProvider.jsx";
 
 
@@ -21,6 +23,8 @@ const App = () => {
             <Route path="/cadastrofinalizado" element={<CadastroFinalizado />} />
             <Route path="/detalhes/:id" element={<Detalhes />} />
             <Route path="/nao-implementado" element={<NaoImplementado />} />
+            <Route path="/cadastro-endereco" element={<CadastroEndereco />} />
+            <Route path="/finalizar-pedido" element={<FinalizarPedido />} />
           </Route>
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/login" element={<Login />} />
