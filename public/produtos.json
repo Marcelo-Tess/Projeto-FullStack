@@ -1,86 +1,148 @@
 {
-    "produtos":[
-        {
-            "id":1,
-            "nome":"Hamburguer Simples",
-            "descricao":"Pão, carne, queijo e alface",
-            "categoria":"Hamburguer",
-            "preco":10.00,
-            "imagem":"/Imagens/pngwing.png"
-        },
-        {
-            "id":2,
-            "nome":"Hamburguer Duplo",
-            "descricao":"Pão, duas carnes, queijo, alface e tomate",
-            "categoria":"Hamburguer",
-            "preco":15.00,
-            "imagem":"/Imagens/pngwing2.png"
-           
-        },
-        {
-            "id":3,
-            "nome":"Cheeseburguer",
-            "descricao":"Pão, carne, queijo cheddar, cebola e picles",
-            "categoria":"Hamburguer",
-            "preco":12.50,
-            "imagem":"/Imagens/pngwing3.png"
-        },
-        {
-            "id":4,
-            "nome":"Pizza Vegana",
-            "descricao":"Pizza com massa integral, molho de tomate, legumes grelhados e queijo vegano",
-            "categoria":"Pizza",
-            "preco":11.00,
-           "imagem": "/Imagens/pizza.png"
-        },
-        {
-            "id":5,
-            "nome":"Pizza Margherita",
-            "descricao":"Massa fina, molho de tomate, queijo mussarela e manjericão",
-            "categoria":"Pizza",
-            "preco":14.00,
-            "imagem":"/Imagens/pizza2.png"
-        },
-        {
-            "id":6,
-            "nome":"Pizza de Frango",
-            "descricao":"Massa fina, molho de tomate, frango desfiado, cebola e azeitonas",
-            "categoria":"Pizza",
-            "preco":13.00,
-            "imagem":"/Imagens/pizza3.png"
-        },
-        {
-            "id":7,
-            "nome":"Pizza Pepperoni",
-            "descricao":"Massa fina, molho de tomate, queijo mussarela e fatias de pepperoni",
-            "categoria":"Pizza",
-            "preco":9.00,
-            "imagem":"/Imagens/pizza4.png"
-        },
-        {
-            "id":8,
-            "nome":"Hot Dog Especial",
-            "descricao":"Pão, salsicha, cebola caramelizada, mostarda e ketchup",
-            "categoria":"Hotdog",
-            "preco":10.50,
-            "imagem":"/Imagens/hotdog.png"
-        },
-        {
-            "id":9,
-            "nome":"Pizza Hut",
-            "descricao":"Massa fina, molho de tomate, queijo mussarela e pepperoni",
-            "categoria":"Pizza",
-            "preco":8.00,
-            "imagem":"/Imagens/pizza5.png"
-        },
-        {
-            "id":10,
-            "nome":"Hot Dog Tradicional",
-            "descricao":"Pão, salsicha, cebola e mostarda",
-            "categoria":"Hotdog",
-            "preco":12.00,
-            "imagem":"/Imagens/hotdog2.png"
-        }
-
-    ]
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Hamburguer Simples",
+      "descricao": "Pão, carne, queijo e alface",
+      "categoria": "Hamburguer",
+      "preco": 10,
+      "imagem": "/Imagens/pngwing.png"
+    },
+    {
+      "id": 2,
+      "nome": "Hamburguer Duplo",
+      "descricao": "Pão, duas carnes, queijo, alface e tomate",
+      "categoria": "Hamburguer",
+      "preco": 15,
+      "imagem": "/Imagens/pngwing2.png"
+    },
+    {
+      "id": 3,
+      "nome": "Cheeseburguer",
+      "descricao": "Pão, carne, queijo cheddar, cebola e picles",
+      "categoria": "Hamburguer",
+      "preco": 12.5,
+      "imagem": "/Imagens/pngwing3.png"
+    },
+    {
+      "id": 4,
+      "nome": "Pizza Vegana",
+      "descricao": "Pizza com massa integral, molho de tomate, legumes grelhados e queijo vegano",
+      "categoria": "Pizza",
+      "preco": 11,
+      "imagem": "/Imagens/pizza.png"
+    },
+    {
+      "id": 5,
+      "nome": "Pizza Margherita",
+      "descricao": "Massa fina, molho de tomate, queijo mussarela e manjericão",
+      "categoria": "Pizza",
+      "preco": 14,
+      "imagem": "/Imagens/pizza2.png"
+    },
+    {
+      "id": 6,
+      "nome": "Pizza de Frango",
+      "descricao": "Massa fina, molho de tomate, frango desfiado, cebola e azeitonas",
+      "categoria": "Pizza",
+      "preco": 13,
+      "imagem": "/Imagens/pizza3.png"
+    },
+    {
+      "id": 7,
+      "nome": "Pizza Pepperoni",
+      "descricao": "Massa fina, molho de tomate, queijo mussarela e fatias de pepperoni",
+      "categoria": "Pizza",
+      "preco": 9,
+      "imagem": "/Imagens/pizza4.png"
+    },
+    {
+      "id": 8,
+      "nome": "Hot Dog Especial",
+      "descricao": "Pão, salsicha, cebola caramelizada, mostarda e ketchup",
+      "categoria": "Hotdog",
+      "preco": 10.5,
+      "imagem": "/Imagens/hotdog.png"
+    },
+    {
+      "id": 9,
+      "nome": "Pizza Hut",
+      "descricao": "Massa fina, molho de tomate, queijo mussarela e pepperoni",
+      "categoria": "Pizza",
+      "preco": 8,
+      "imagem": "/Imagens/pizza5.png"
+    },
+    {
+      "id": 10,
+      "nome": "Hot Dog Tradicional",
+      "descricao": "Pão, salsicha, cebola e mostarda",
+      "categoria": "Hotdog",
+      "preco": 12,
+      "imagem": "/Imagens/hotdog2.png"
+    },
+    {
+      "id": 11,
+      "nome": "Hot Dog Bacon e Cheddar",
+      "descricao": "Pão, salsicha, bacon crocante, molho cheddar, cebola e maionese da casa",
+      "categoria": "Hotdog",
+      "preco": 13.5,
+      "imagem": "/Imagens/hotdog.png"
+    },
+    {
+      "id": 12,
+      "nome": "Hot Dog Tex-Mex",
+      "descricao": "Pão, salsicha, chili com carne, queijo, nachos crocantes e jalapeño",
+      "categoria": "Hotdog",
+      "preco": 14,
+      "imagem": "/Imagens/hotdog2.png"
+    },
+    {
+      "id": 13,
+      "nome": "Hot Dog Vegetariano",
+      "descricao": "Pão, salsicha veg, maionese verde, milho, ervilha e batata palha",
+      "categoria": "Hotdog",
+      "preco": 11.5,
+      "imagem": "/Imagens/hotdog.png"
+    },
+    {
+      "id": 14,
+      "nome": "Milkshake de Chocolate",
+      "descricao": "Sorvete de chocolate, calda de chocolate e chantilly",
+      "categoria": "Milkshake",
+      "preco": 9,
+      "imagem": "/Imagens/milkshake_chocolate.png"
+    },
+    {
+      "id": 15,
+      "nome": "Milkshake de Morango",
+      "descricao": "Sorvete de morango, calda de morango e chantilly",
+      "categoria": "Milkshake",
+      "preco": 9,
+      "imagem": "/Imagens/milkshake_morango.png"
+    },
+    {
+      "id": 17,
+      "nome": "Milkshake de Ovomaltine",
+      "descricao": "Sorvete de baunilha com Ovomaltine, calda de chocolate e chantilly",
+      "categoria": "Milkshake",
+      "preco": 10,
+      "imagem": "/Imagens/milkshake_ovomaltine.png"
+    },
+    {
+      "id": 18,
+      "nome": "Milkshake de Doce de Leite",
+      "descricao": "Sorvete de creme, doce de leite e farofa de biscoito",
+      "categoria": "Milkshake",
+      "preco": 10.5,
+      "imagem": "/Imagens/milkshake_DoceLeite.png"
+    },
+    {
+      "id": 19,
+      "nome": "Milkshake de Cookies",
+      "descricao": "Sorvete de creme com pedaços de biscoito e chantilly",
+      "categoria": "Milkshake",
+      "preco": 10,
+      "imagem": "/Imagens/milkshake_Cookies.png"
+    }
+  ]
 }
