@@ -34,7 +34,7 @@ const Nav = () => {
 
         <ul className="hidden md:flex space-x-6">
           <li><a href="/" className="text-gray-600 hover:text-red-600 hover:underline transition">Home</a></li>
-          <li><a href="/cardapio" className="text-gray-600 hover:text-red-600 hover:underline transition">Cardápio</a></li>
+          <li><a href="#cardapio" className="text-gray-600 hover:text-red-600 hover:underline transition">Cardápio</a></li>
           <li><a href="/nao-implementado" className="text-gray-600 hover:text-red-600 hover:underline transition">Estabelecimento</a></li>
         </ul>
 

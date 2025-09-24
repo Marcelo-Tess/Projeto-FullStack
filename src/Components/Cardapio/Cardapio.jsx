@@ -35,7 +35,7 @@ const Cardapio = () => {
   };
 
   return (
-    <div className="bg-gray-200 min-h-screen p-6">
+    <div className="bg-gray-200 min-h-screen p-6" id='cardapio'>
       <h1 className="text-center text-2xl font-bold mb-6">Cardápio</h1>
 
       <Filtro
