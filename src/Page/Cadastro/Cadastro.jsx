@@ -18,6 +18,7 @@ const Cadastro = () => {
     bairro: '',
     cep: '',
     complemento: '',
+    telefone: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -48,6 +49,7 @@ const Cadastro = () => {
     if (!formData.numero.trim()) novosErros.numero = 'Número obrigatório';
     if (!formData.bairro.trim()) novosErros.bairro = 'Bairro obrigatório';
     if (!formData.cep.trim()) novosErros.cep = 'CEP obrigatório';
+    if (!formData.telefone.trim()) novosErros.telefone = 'Telefone obrigatório';
 
     setErrors(novosErros);
     return Object.keys(novosErros).length === 0;
@@ -214,6 +216,15 @@ const Cadastro = () => {
               onBlur={getAddress}
             />
             {errors.cep && <p className="error">{errors.cep}</p>}
+
+            <input
+              name="telefone"
+              type="tel"
+              placeholder="Telefone"
+              value={formData.telefone}
+              onChange={handleChange}
+            />
+            {errors.telefone && <p className="error">{errors.telefone}</p>}
 
             <input
               name="complemento"
