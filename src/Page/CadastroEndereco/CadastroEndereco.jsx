@@ -41,17 +41,27 @@ const CadastroEndereco = () => {
     setError('');
 
     try {
-      console.log('Token atual:', localStorage.getItem('site'));
-      console.log('Dados do endereço:', formData);
+ 
       
       const response = await api.post('/api/enderecos/', formData);
-      console.log('Resposta do cadastro:', response.data);
+   
+      
+      // Usar a resposta do backend que contém o endereço criado com ID
+      const enderecoCriado = response.data.data;
+      
+      if (!enderecoCriado) {
+        throw new Error('Endereço não foi criado corretamente');
+      }
+      
+      // Mostrar feedback de sucesso
+      setError('');
+
       
       // Após cadastrar endereço, vai para finalizar pedido
       navigate('/finalizar-pedido', { 
         state: { 
           produto,
-          endereco: formData
+          endereco: enderecoCriado // Usar o endereço retornado pelo backend
         }
       });
     } catch (error) {
@@ -65,6 +75,12 @@ const CadastroEndereco = () => {
       } else if (error.response?.status === 401) {
         setError('Não autorizado. Faça login novamente.');
         setTimeout(() => navigate('/login'), 2000);
+      } else if (error.response?.status === 400) {
+        // Erro de validação do backend
+        const errorMessage = error.response?.data?.message || 'Dados inválidos. Verifique os campos.';
+        setError(errorMessage);
+      } else if (error.message === 'Endereço não foi criado corretamente') {
+        setError('Erro ao processar endereço. Tente novamente.');
       } else {
         setError('Erro ao cadastrar endereço. Tente novamente.');
       }
