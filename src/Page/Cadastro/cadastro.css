@@ -21,14 +21,48 @@ h2 {
   margin-bottom: 20px;
 }
 
-.etapa-formulario {
-  display: none;
+.formulario-cadastro {
+  display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-.etapa-formulario.ativa {
-  display: flex;
-  gap: 15px;
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-header h1 {
+  color: #333;
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+.form-header p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.icone-cadastro {
+  font-size: 48px;
+  color: crimson;
+  margin-bottom: 10px;
+}
+
+.success-message {
+  text-align: center;
+  padding: 40px;
+}
+
+.success-message h2 {
+  color: #28a745;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.success-message p {
+  color: #666;
+  font-size: 16px;
 }
 
 input {
@@ -125,4 +159,36 @@ button:hover, .botao-voltar:hover {
   color: #a80028;
 }
 
+/* Novos estilos para o formulário simplificado */
+.botao-cadastrar {
+  background-color: #28a745;
+  font-weight: bold;
+}
+
+.botao-cadastrar:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.botao-voltar {
+  background-color: #6c757d;
+}
+
+.botao-voltar:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-geral {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #f5c6cb;
+  text-align: center;
+  margin-bottom: 15px;
+}
 

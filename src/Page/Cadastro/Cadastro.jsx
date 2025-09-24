@@ -1,99 +1,132 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUser, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import backgroundImg from '../../assets/background_cadastro.png';
+import useApi from '../../services/useApi';
 import './Cadastro.css';
 
 const Cadastro = () => {
-  const [etapaAtual, setEtapaAtual] = useState(1);
-
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
     emailConfirma: '',
     senha: '',
     senhaConfirma: '',
-    rua: '',
-    numero: '',
-    bairro: '',
-    cep: '',
-    complemento: '',
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+  const api = useApi();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' });
   };
 
-  const validarEtapa1 = () => {
+  const validarFormulario = () => {
     let novosErros = {};
-    if (!formData.nome.trim()) novosErros.nome = 'Nome obrigatório';
-    if (!formData.email.trim()) novosErros.email = 'Email obrigatório';
-    if (!formData.emailConfirma.trim()) novosErros.emailConfirma = 'Confirme o email';
-    else if (formData.email !== formData.emailConfirma) novosErros.emailConfirma = 'Emails não conferem';
-    if (!formData.senha.trim()) novosErros.senha = 'Senha obrigatória';
-    if (!formData.senhaConfirma.trim()) novosErros.senhaConfirma = 'Confirme a senha';
-    else if (formData.senha !== formData.senhaConfirma) novosErros.senhaConfirma = 'Senhas não conferem';
-
-    setErrors(novosErros);
-    return Object.keys(novosErros).length === 0;
-  };
-
-  const validarEtapa2 = () => {
-    let novosErros = {};
-    if (!formData.rua.trim()) novosErros.rua = 'Rua obrigatória';
-    if (!formData.numero.trim()) novosErros.numero = 'Número obrigatório';
-    if (!formData.bairro.trim()) novosErros.bairro = 'Bairro obrigatório';
-    if (!formData.cep.trim()) novosErros.cep = 'CEP obrigatório';
-
-    setErrors(novosErros);
-    return Object.keys(novosErros).length === 0;
-  };
-
-  const proximaEtapa = () => {
-    if (etapaAtual === 1) {
-      if (validarEtapa1()) setEtapaAtual(2);
-    } else if (etapaAtual === 2) {
-      if (validarEtapa2()) {
-        localStorage.setItem('usuario', JSON.stringify(formData));
-        navigate('/cadastrofinalizado');
-      }
+    
+    if (!formData.nome.trim()) {
+      novosErros.nome = 'Nome obrigatório';
     }
+    
+    if (!formData.email.trim()) {
+      novosErros.email = 'Email obrigatório';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      novosErros.email = 'Email inválido';
+    }
+    
+    if (!formData.emailConfirma.trim()) {
+      novosErros.emailConfirma = 'Confirme o email';
+    } else if (formData.email !== formData.emailConfirma) {
+      novosErros.emailConfirma = 'Emails não conferem';
+    }
+    
+    if (!formData.senha.trim()) {
+      novosErros.senha = 'Senha obrigatória';
+    } else if (formData.senha.length < 6) {
+      novosErros.senha = 'Senha deve ter pelo menos 6 caracteres';
+    }
+    
+    if (!formData.senhaConfirma.trim()) {
+      novosErros.senhaConfirma = 'Confirme a senha';
+    } else if (formData.senha !== formData.senhaConfirma) {
+      novosErros.senhaConfirma = 'Senhas não conferem';
+    }
+
+    setErrors(novosErros);
+    return Object.keys(novosErros).length === 0;
   };
 
-  const etapaAnterior = () => {
-    setEtapaAtual(prev => (prev > 1 ? prev - 1 : prev));
-  };
-
-  const getAddress = async () => {
-    const cepLimpo = formData.cep.replace(/\D/g, '');
-
-    if (cepLimpo.length !== 8) {
-      setErrors(prev => ({ ...prev, cep: 'CEP inválido' }));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validarFormulario()) {
       return;
     }
 
-    try {
-      const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
-      const data = await response.json();
+    setLoading(true);
+    setErrors({});
 
-      if (data.erro) {
-        setErrors(prev => ({ ...prev, cep: 'CEP não encontrado' }));
-      } else {
-        setFormData(prev => ({
-          ...prev,
-          rua: data.logradouro || '',
-          bairro: data.bairro || '',
-          complemento: data.complemento || ''
-        }));
-      }
+    try {
+      const userData = {
+        nome: formData.nome,
+        email: formData.email,
+        senha: formData.senha
+      };
+
+      const response = await api.post('/api/users/register', userData);
+      
+      console.log('Usuário criado com sucesso:', response.data);
+      setSuccess(true);
+      
+      // Redireciona para login após 2 segundos
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
+
     } catch (error) {
-      setErrors(prev => ({ ...prev, cep: 'Erro ao buscar CEP' }));
+      console.error('Erro ao cadastrar usuário:', error);
+      
+      if (error.response?.status === 409) {
+        setErrors({ email: 'Email já está em uso' });
+      } else if (error.response?.status === 400) {
+        const errorMessage = error.response?.data?.message || 'Dados inválidos';
+        setErrors({ geral: errorMessage });
+      } else {
+        setErrors({ geral: 'Erro ao cadastrar usuário. Tente novamente.' });
+      }
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (success) {
+    return (
+      <div
+        style={{
+          backgroundImage: `url(${backgroundImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          minHeight: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '20px',
+        }}
+      >
+        <div className="container">
+          <div className="success-message">
+            <h2>✅ Cadastro realizado com sucesso!</h2>
+            <p>Redirecionando para o login...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -110,137 +143,84 @@ const Cadastro = () => {
       }}
     >
       <div className="container">
-        <div className="indicador-etapas">
-          <div className={`etapa ${etapaAtual === 1 ? 'ativa' : ''}`}>
-            <FaUser className="icone-etapa" />
-            <div className="bolinha"></div>
-          </div>
-          <div className={`etapa ${etapaAtual === 2 ? 'ativa' : ''}`}>
-            <FaMapMarkerAlt className="icone-etapa" />
-            <div className="bolinha"></div>
-          </div>
-          <div className="linha-etapas"></div>
+        <div className="form-header">
+          <FaUser className="icone-cadastro" />
+          <h1>Cadastro de Usuário</h1>
+          <p>Preencha os dados para criar sua conta</p>
         </div>
 
-        {etapaAtual === 1 && (
-          <div className="etapa-formulario ativa">
-            <input
-              name="nome"
-              type="text"
-              placeholder="Nome Completo"
-              value={formData.nome}
-              onChange={handleChange}
-            />
-            {errors.nome && <p className="error">{errors.nome}</p>}
+        <form onSubmit={handleSubmit} className="formulario-cadastro">
+          {errors.geral && <p className="error-geral">{errors.geral}</p>}
 
-            <input
-              name="email"
-              type="email"
-              placeholder="E-mail*"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
+          <input
+            name="nome"
+            type="text"
+            placeholder="Nome Completo *"
+            value={formData.nome}
+            onChange={handleChange}
+            disabled={loading}
+          />
+          {errors.nome && <p className="error">{errors.nome}</p>}
 
-            <input
-              name="emailConfirma"
-              type="email"
-              placeholder="Confirmar E-mail*"
-              value={formData.emailConfirma}
-              onChange={handleChange}
-            />
-            {errors.emailConfirma && <p className="error">{errors.emailConfirma}</p>}
+          <input
+            name="email"
+            type="email"
+            placeholder="E-mail *"
+            value={formData.email}
+            onChange={handleChange}
+            disabled={loading}
+          />
+          {errors.email && <p className="error">{errors.email}</p>}
 
-            <input
-              name="senha"
-              type="password"
-              placeholder="Senha*"
-              value={formData.senha}
-              onChange={handleChange}
-            />
-            {errors.senha && <p className="error">{errors.senha}</p>}
+          <input
+            name="emailConfirma"
+            type="email"
+            placeholder="Confirmar E-mail *"
+            value={formData.emailConfirma}
+            onChange={handleChange}
+            disabled={loading}
+          />
+          {errors.emailConfirma && <p className="error">{errors.emailConfirma}</p>}
 
-            <input
-              name="senhaConfirma"
-              type="password"
-              placeholder="Confirmar Senha*"
-              value={formData.senhaConfirma}
-              onChange={handleChange}
-            />
-            {errors.senhaConfirma && <p className="error">{errors.senhaConfirma}</p>}
+          <input
+            name="senha"
+            type="password"
+            placeholder="Senha * (mínimo 6 caracteres)"
+            value={formData.senha}
+            onChange={handleChange}
+            disabled={loading}
+          />
+          {errors.senha && <p className="error">{errors.senha}</p>}
 
-            <div className="grupo-botoes">
-              <div></div>
-              <button onClick={proximaEtapa}>Próximo</button>
-            </div>
+          <input
+            name="senhaConfirma"
+            type="password"
+            placeholder="Confirmar Senha *"
+            value={formData.senhaConfirma}
+            onChange={handleChange}
+            disabled={loading}
+          />
+          {errors.senhaConfirma && <p className="error">{errors.senhaConfirma}</p>}
+
+          <div className="grupo-botoes">
+            <button 
+              type="button" 
+              className="botao-voltar" 
+              onClick={() => navigate('/login')}
+              disabled={loading}
+            >
+              Voltar para Login
+            </button>
+            
+            <button 
+              type="submit" 
+              className="botao-cadastrar"
+              disabled={loading}
+            >
+              {loading ? 'Cadastrando...' : 'Cadastrar'}
+            </button>
           </div>
-        )}
-
-        {etapaAtual === 2 && (
-          <div className="etapa-formulario ativa">
-            <input
-              name="rua"
-              type="text"
-              placeholder="Rua"
-              value={formData.rua}
-              onChange={handleChange}
-            />
-            {errors.rua && <p className="error">{errors.rua}</p>}
-
-            <input
-              name="numero"
-              type="text"
-              placeholder="Número"
-              value={formData.numero}
-              onChange={handleChange}
-            />
-            {errors.numero && <p className="error">{errors.numero}</p>}
-
-            <input
-              name="bairro"
-              type="text"
-              placeholder="Bairro"
-              value={formData.bairro}
-              onChange={handleChange}
-            />
-            {errors.bairro && <p className="error">{errors.bairro}</p>}
-
-            <input
-              name="cep"
-              type="text"
-              placeholder="CEP"
-              value={formData.cep}
-              onChange={handleChange}
-              onBlur={getAddress}
-            />
-            {errors.cep && <p className="error">{errors.cep}</p>}
-
-            <input
-              name="complemento"
-              type="text"
-              placeholder="Complemento"
-              value={formData.complemento}
-              onChange={handleChange}
-            />
-
-            <div className="grupo-botoes">
-              <button className="botao-voltar" onClick={etapaAnterior}>Voltar</button>
-
-              <p
-                className="pular-etapa"
-                onClick={() => {
-                  localStorage.setItem('usuario', JSON.stringify(formData));
-                  navigate('/cadastrofinalizado');
-                }}
-                style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
-              >
-                Pular Etapa
-              </p>
-
-              <button onClick={proximaEtapa}>Finalizar</button>
-            </div>
-          </div>
-        )}
+        </form>
       </div>
     </div>
   );
